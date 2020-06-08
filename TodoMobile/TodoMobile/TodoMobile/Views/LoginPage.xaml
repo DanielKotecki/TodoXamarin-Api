@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:TodoMobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="TodoMobile.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <ViewModels:LoginViewModels/>
+    </ContentPage.BindingContext>
+    <StackLayout Orientation="Vertical" BackgroundColor="LightBlue" Padding="20">
+        <Label Text="Login page" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"/>
+        <Entry Text="{Binding Username}" Placeholder="Username" Margin="20, 0"/>
+        <Entry Text="{Binding Password}" Placeholder="Passowrd" IsPassword="True" Margin="20, 0"/>
+        <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="DeepSkyBlue" Margin="20, 20, 20 ,0" CornerRadius="20"/>
+
+
+    </StackLayout>
+</ContentPage>

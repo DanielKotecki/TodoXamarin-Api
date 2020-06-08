@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModels="clr-namespace:TodoMobile.ViewModels"
+             x:Class="TodoMobile.Views.TodoPage">
+
+    <ContentPage.BindingContext>
+        <ViewModels:TodoViewModels/>
+    </ContentPage.BindingContext>
+    <StackLayout BackgroundColor="LightBlue" Padding="20">
+        <Label Text="Tasks to do!" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"/>
+        <ListView ItemsSource="{Binding todoDtos}"
+                  HasUnevenRows="True"
+                  ItemTapped="ListView_ItemTapped"
+                  SeparatorColor="black"
+                  x:Name="Entrytext">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="15">
+                            <Grid BackgroundColor="DeepSkyBlue" HeightRequest="10" />
+                            <Label Text="Title" FontSize="Medium" TextColor="Black"/>
+                            <Label x:Name="Title" Text="{Binding Title}" HorizontalOptions="Center" FontSize="Medium"/>
+                            <Label Text="Description" FontSize="Medium" TextColor="Black"/>
+                            <Label x:Name="Description" Text="{Binding Description}" HorizontalOptions="Center" FontSize="Medium"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Command="{Binding GetTodoCommand}" Text="Show Tasks" BackgroundColor="DeepSkyBlue" Margin="20, 0" CornerRadius="20"/>
+        <Button Text="Add new task" Clicked="Button_Clicked_1" BackgroundColor="DeepSkyBlue" Margin="20, 0" CornerRadius="20"/>
+    </StackLayout>
+</ContentPage>

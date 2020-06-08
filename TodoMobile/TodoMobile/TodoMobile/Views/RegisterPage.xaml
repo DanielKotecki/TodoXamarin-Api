@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TodoMobile.Views.RegisterPage"
+             xmlns:viewModels1="clr-namespace:TodoMobile.ViewModels;assembly=TodoMobile;assembly=TodoMobile">
+
+    <ContentPage.BindingContext>
+        <viewModels1:RegisterViewModels/>
+    </ContentPage.BindingContext>
+    <StackLayout Orientation="Vertical" BackgroundColor="LightBlue" Padding="20">
+        <Label Text="Create account or login" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"/>
+        <Entry Text="{Binding Username}"
+               Placeholder="Username" Margin="20, 0"/>
+        <Entry Text="{Binding Password}"
+               Placeholder="Password" IsPassword="True" Margin="20, 0"/>
+        <Button Command="{Binding RegisterCommand}" Text="Register" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" Margin="20, 20, 20 ,0" CornerRadius="20"/>
+
+        <Button Text="Go to Login" Clicked="Button_Clicked" BackgroundColor="DeepSkyBlue" Margin="20, 0" CornerRadius="20"/>
+    </StackLayout>
+</ContentPage>
